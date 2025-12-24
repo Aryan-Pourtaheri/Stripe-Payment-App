@@ -11,5 +11,11 @@
         "description":"A trendy and comfortable t-shirt. Perfect for casual wear!",
         "price":3000, 
         "quantity": 5
+    },
+        {
+        "product": "T-shirt", 
+        "description":"A trendy and comfortable t-shirt. Perfect for casual wear!",
+        "price":3000, 
+        "quantity": 5
     }
 ]

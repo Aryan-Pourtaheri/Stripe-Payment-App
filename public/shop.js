@@ -8,20 +8,21 @@ fetch('/api/products')
       const data = JSON.parse(text);  // Try to parse the text as JSON
       const productsList = data.map(product => {
         return `
-          <div class="product">
-            <h2 class="product-name">${product.product}</h2>
-            <p class="product-description">${product.description}</p>
-            <p class="product-price">$${product.price / 100}</p>
-            <p class="product-quantity">${product.quantity} left</p>
+          <div class="card">
+            <div class="product">
+              <h2 class="product-name">${product.product}</h2>
+              <p class="product-description">${product.description}</p>
+              <p class="product-price">$${(product.price / 100).toFixed(2)}</p>
+              <p class="product-quantity">${product.quantity} left</p>
+            </div>
+            <button class="purchaseBtn">Purchase</button>
           </div>
-          <button class="purchaseBtn">Purchase</button>
         `;
       });
 
       // Insert the list of products into the card element
-      const card = document.querySelector('.card');
+      const card = document.querySelector('.card-container');
       card.innerHTML = productsList.join('');
-      console.log(card)
     } catch (error) {
       console.error('Error parsing JSON:', error);
       console.log('Received response:', text);  // Log the actual response for debugging
