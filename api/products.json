@@ -1,8 +1,15 @@
 [
     {
         "product": "backpack", 
+        "description":"a very comfortable backpack that can be used for travel!",
+        "price":2000, 
+        "quantity": 2
+    },
+
+    {
+        "product": "T-shirt", 
         "description":"A trendy and comfortable t-shirt. Perfect for casual wear!",
-        "price":20000, 
+        "price":3000, 
         "quantity": 5
     }
 ]

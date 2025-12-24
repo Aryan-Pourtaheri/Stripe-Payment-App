@@ -5,34 +5,38 @@ const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 const PORT = process.env.PORT || 5000;
 const IP_ADDRESS = process.env.IP_ADDRESS || '127.0.0.1';
 
+// Check if necessary environment variables are set
+if (!stripeSecretKey || !stripePublicKey) {
+  console.error('Stripe keys are missing from environment variables');
+  process.exit(1);
+}
 
 const express = require('express');
 const cors = require('cors');
-const path = require('path')
-const fs = require('fs')
+const fs = require('fs');
 const app = express();
 
 app.use(cors());
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
+app.use(express.static('public')); // Ensure correct path
 
 app.use(express.json());
 
+// Load products from JSON file with error handling
+let products;
+try {
+  products = JSON.parse(fs.readFileSync('api/products.json'));
+} catch (error) {
+  console.error('Error reading products.json:', error);
+  products = [];
+}
+
+// Serve products as JSON
 app.get('/api/products', (req, res) => {
-  const filePath = path.join(__dirname, 'products.json');  // Path to the JSON file
-
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(500).json({ message: 'Error reading products data' });
-    }
-
-    const products = JSON.parse(data);  // Parse JSON data
-    res.json(products);  // Send products data as JSON response
-  });
+  res.json(products);  // Send products as JSON
 });
-
 
 // Start the server
 app.listen(PORT, IP_ADDRESS, () => {
