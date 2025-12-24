@@ -1,14 +1,15 @@
 require('dotenv').config();  // Load environment variables from .env file
 
-// Get environment variables or fall back to default values
-// const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 const PORT = process.env.PORT || 5000;
 const IP_ADDRESS = process.env.IP_ADDRESS || '127.0.0.1';
 
+
 const express = require('express');
 const cors = require('cors');
-
+const path = require('path')
+const fs = require('fs')
 const app = express();
 
 app.use(cors());
