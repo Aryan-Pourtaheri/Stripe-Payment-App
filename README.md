@@ -27,3 +27,5 @@ Before running the app, you’ll need:
    ```bash
    git clone https://github.com/Aryan-Pourtaheri/Stripe-Payment-App.git
    cd StripeCheckoutApp
+   npm run dev
+   ```
