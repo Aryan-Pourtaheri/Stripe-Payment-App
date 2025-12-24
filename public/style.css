@@ -1,0 +1,88 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Styling the card */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Styling the product info */
+.product {
+    margin-bottom: 20px;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Button styling */
+.purchaseBtn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+.purchaseBtn:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.purchaseBtn:active {
+    background-color: #1e8449; /* Darker green when clicked */
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+    }
+
+    .product-name {
+        font-size: 1.25rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+}
